@@ -8,8 +8,12 @@ export default function Main() {
     const [userInput, setUserInput] = useState('');
 
     const inputHandler = (e) => {
-        setUserInput((input) => e.target.value);
+        setUserInput((userInput) => e.target.value);
     };
+
+    const buttonClickHandler = (e) => {
+        console.log(userInput);
+    }
 
 
     return (
@@ -25,7 +29,7 @@ export default function Main() {
                 />
                 <button
                     className="outline outline-1 rounded p-1 m-1"
-                    onClick={handleButton}
+                    onClick={buttonClickHandler}
                 >
                     Start
                 </button>
