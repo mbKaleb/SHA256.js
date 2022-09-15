@@ -20,7 +20,7 @@ export default function Main() {
                 </div>
                 <input
                     className="outline outline-1 rounded p-1 m-1"
-                    value={input}
+                    value={userInput}
                     onChange={inputHandler}
                 />
                 <button
@@ -29,7 +29,7 @@ export default function Main() {
                 >
                     Start
                 </button>
-                <Outlet context={[input, setInput]} />
+                <Outlet context={[userInput, setUserInput]} />
             </header>
         </div>
     );
