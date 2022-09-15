@@ -1,0 +1,42 @@
+'shr32 shifts the bits over a number of positions'
+"right rotation shifts the bits over to the right and "
+"exclusive or gives a 0 is both bits are the same, or a 1 if they are different"
+"addition, and mod 2**32"
+
+32 bits is a word
+
+Lsigma0(x)
+rotr 7
+rotr 18 Xor
+shr  3  Xor
+
+Lsigma1(x)
+rotr 17
+rotr 19 Xor
+shr  10  Xor
+
+USigma0(x)
+rotr 2
+rotr 13 Xor
+shr  22  Xor
+
+USigma1(x)
+rotr 6
+rotr 11 Xor
+shr  25  Xor
+
+Choice first number determines which number to use 1:y, 0:z
+X 1 
+y 1
+z 1
+O 1
+
+Majority Takes the most common bit 
+X 1 0 1 1
+y 1 0 0 0
+z 1 1 1 0
+O 1 0 1 0
+
+
+Constants
+ 
