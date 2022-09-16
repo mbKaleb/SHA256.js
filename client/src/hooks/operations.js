@@ -4,7 +4,7 @@ const rotr = (x, num) => {
     return rotr32(x, num);
 };
 
-//  Unsigned 32 bit xOR operator  //
+//  Unsigned 32 bit xOR operator  // 
 const xOR = (a, b) => {
     let res = '';
 

@@ -13,14 +13,14 @@ export default function Main() {
     };
 
     const buttonClickHandler = (e) => {
-        setIsOutletActive(true);
+        setIsOutletActive(!isOutletActive);
     }
 
 
     return (
         <div className="App p-2">
             <header className="App-header">
-                <div className='ml-1'>
+                <div className="ml-1">
                     Welcome to SHA-256.js, enter your string and press start
                 </div>
                 <input
@@ -32,10 +32,12 @@ export default function Main() {
                     className="outline outline-1 rounded p-1 m-1"
                     onClick={buttonClickHandler}
                 >
-                    Start
+                    {isOutletActive ? 'Cancel' : 'Start'}
                 </button>
-                <div className='p-1 m-1 outline outline-1 rounded h-screen'>
-                    {isOutletActive ? (<Outlet context={[userInput, setUserInput]} />) : null }
+                <div className="p-1 m-1 outline outline-1 rounded h-screen">
+                    {isOutletActive ? (
+                        <Outlet context={[userInput, setUserInput]} />
+                    ) : null}
                 </div>
             </header>
         </div>

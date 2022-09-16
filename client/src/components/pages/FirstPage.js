@@ -3,9 +3,13 @@ import { Outlet, useOutletContext } from 'react-router-dom';
 
 import { rotr } from '../../hooks/operations';
 
+import { intTo32BinaryStrArr } from '../../hooks/converters';
+
 import { lowercaseSigma0 } from '../../hooks/compoundOperations';
 
 export default function FirstPage() {
+    const intToBinary = intTo32BinaryStrArr;
+
     const [Input, setInput] = useOutletContext();
     const defaultStr = 'default';
     const [DCS, setDCS] = useState({
@@ -35,7 +39,7 @@ export default function FirstPage() {
                         .reduce((c, p) => c + p)}
                 </div>
             ) : null}
-            <div>{lowercaseSigma0(Input)}</div>
+            <div>{intToBinary(6123)}</div>
         </>
     );
 }
