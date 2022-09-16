@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useOutletContext } from 'react-router-dom';
 
-import { rotr } from '../../hooks/operations';
-
-import { intTo32BinaryStrArr } from '../../hooks/converters';
-
-import { lowercaseSigma0 } from '../../hooks/compoundOperations';
+import { anyToBinaryStr } from '../../hooks/converters';
 
 export default function FirstPage() {
-    const intToBinary = intTo32BinaryStrArr;
-
     const [Input, setInput] = useOutletContext();
+
+    let message = '';
+
     const defaultStr = 'default';
+
+    const [bytesArr, setBytesArr] = useState([]);
+    const [binaryDisplay, setBinaryDisplay] = useState([]);
+
     const [DCS, setDCS] = useState({
         first: false,
         seccond: false,
@@ -21,6 +22,9 @@ export default function FirstPage() {
     useEffect(() => {
         setTimeout(() => {
             setDCS({ ...DCS, first: true });
+            setBytesArr(
+                [...Input].map((c) => c.charCodeAt(0).toString() + ' ')
+            );
         }, 100);
 
         setTimeout(() => {
@@ -28,18 +32,36 @@ export default function FirstPage() {
         }, 1000);
     }, []);
 
+    useEffect(() => {
+        setTimeout(() => {
+            setDCS((DCS) => ({ ...DCS, third: true }));
+            let bArr = [...bytesArr].map((byte) => {
+                return anyToBinaryStr(byte);
+            });
+
+            for (let i = 0; i <= bArr.length -1; i++) {
+                setTimeout(() => {
+                    setBinaryDisplay(bArr.slice(0, i + 1));
+                }, 300 * i);
+                if (i === bArr.length -1 ){
+                  setTimeout(() => {
+                      setBinaryDisplay((prevState)=>{
+                        if (typeof prevState === "string") return;
+                        return prevState ? prevState.join('') : 'empty'
+                      })
+                  }, 500 * bArr.length);
+                }
+            }
+        }, 1500);
+    }, [bytesArr]);
+
     return (
         <>
             {DCS.first ? <div>Input: {Input}</div> : null}
             {DCS.seccond ? (
-                <div>
-                    Binary Bytes:{' '}
-                    {[...(Input || defaultStr)]
-                        .map((c) => c.charCodeAt(0).toString() + ' ')
-                        .reduce((c, p) => c + p)}
-                </div>
+                <div>ASCII Bytes: {bytesArr.reduce((c, p) => c + p)}</div>
             ) : null}
-            <div>{intToBinary(6123)}</div>
+            {DCS.third ? <div>{binaryDisplay}</div> : null}
         </>
     );
 }

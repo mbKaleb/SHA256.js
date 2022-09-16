@@ -9,5 +9,15 @@ const intTo32BinaryStrArr = (integer) => {
     return BiStr
 }
 
+const intToBinary = (integer) => {
+    return integer.toString(2)
+}
 
-export { intTo32BinaryStrArr };
+const anyToBinaryStr = (any) => {
+    if (typeof any == "string"){
+        let int = parseInt(any)
+        return int.toString(2)
+    }
+}
+
+export { intTo32BinaryStrArr, anyToBinaryStr };
