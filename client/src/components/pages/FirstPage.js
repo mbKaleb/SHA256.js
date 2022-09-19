@@ -49,7 +49,7 @@ export default function FirstPage() {
                             if (typeof prevState === 'string') return;
                             return prevState ? prevState.join('') : 'empty';
                         });
-                    }, 300 * bArr.length);
+                    }, 400 * bArr.length);
                 }
             }
 
@@ -57,7 +57,7 @@ export default function FirstPage() {
                 setBinaryDisplay((prevState) => {
                     if (typeof prevState === 'string') return prevState + '1';
                 });
-            }, 300 * (bArr.length + 1));
+            }, 400 * (bArr.length + 1));
 
             setTimeout(() => {
                 setBinaryDisplay((prevState) => {
@@ -76,12 +76,12 @@ export default function FirstPage() {
                     }
                     return prevState;
                 });
-            }, 300 * (bArr.length + 2));
+            }, 400 * (bArr.length + 2));
         }, 1500);
     }, [bytesArr]);
 
     return (
-        <>
+        <div className='outline outline-1 h-full w-96'>
             {DCS.first ? <div>Input: {Input}</div> : null}
             {DCS.seccond ? (
                 <div>ASCII Bytes: {bytesArr.reduce((c, p) => c + p)}</div>
@@ -89,7 +89,7 @@ export default function FirstPage() {
             {DCS.third ? (
                 <div className="break-all">{binaryDisplay}</div>
             ) : null}
-        </>
+        </div>
     );
 }
 // first padd it out to 512 bits, 512 - message - 1 - 64 (length of message)
