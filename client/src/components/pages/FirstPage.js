@@ -7,7 +7,7 @@ import { anyToBinaryStr, intTo64BinaryStrArr } from '../../hooks/converters';
 export default function FirstPage() {
     const [Input, setInput] = useOutletContext();
 
-    const [initMsg, setInitMsg] = useState()
+    const [initMsg, setInitMsg] = useState();
 
     let message = '';
 
@@ -82,6 +82,11 @@ export default function FirstPage() {
                 });
             }, 400 * (bArr.length + 2));
         }, 1500);
+
+        setTimeout(() => {
+            setDCS((DCS) => ({ ...DCS, fourth: true }));
+        }, 2500 + Input.split('').length * 500);
+        
     }, [bytesArr]);
 
     return (

@@ -1,13 +1,13 @@
 // integer to binary array
 
 const intTo32BinaryStrArr = (integer) => {
-    let biStr = Array.from(integer.toString(2));
+    if (integer) {let biStr = Array.from(integer.toString(2));
     if (biStr.length > 32)
         throw Error(
             `${integer} is greater than 32 bits, Input must be 32 or less bits`
         );
     while (biStr.length < 32) biStr.unshift('0');
-    return biStr;
+    return biStr;}
 };
 
 const intTo64BinaryStrArr = (integer) => {
@@ -20,6 +20,20 @@ const intTo64BinaryStrArr = (integer) => {
     return biStr;
 };
 
+const intTo32BitStr = (integer) => {
+    if (integer) {
+        let biStr = Array.from(integer.toString(2));
+        if (biStr.length > 32)
+            throw Error(
+                `${integer} is greater than 32 bits, Input must be 32 or less bits`
+            );
+        while (biStr.length < 32) biStr.unshift('0');
+        let str = biStr.join('');
+        console.log(str);
+        return biStr
+    }
+}
+
 const intToBinary = (integer) => {
     return integer.toString(2);
 };
@@ -31,4 +45,9 @@ const anyToBinaryStr = (any) => {
     }
 };
 
-export { intTo32BinaryStrArr, intTo64BinaryStrArr, anyToBinaryStr };
+export {
+    intTo32BinaryStrArr,
+    intTo64BinaryStrArr,
+    intTo32BitStr,
+    anyToBinaryStr,
+};

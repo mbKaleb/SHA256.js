@@ -6,7 +6,7 @@ import Main from './components/Main';
 import FirstPage from './components/pages/FirstPage';
 import Hashing from './components/pages/Hashing';
 
-const path1 = 'test';
+const path1 = '';
 const path2 = 'hashing';
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Main />}>
+                <Route path="/" element={<Hashing />}>
                     <Route
                         path={`/${path1}`}
                         element={<FirstPage setInitMsg={setInitMsg} />}
