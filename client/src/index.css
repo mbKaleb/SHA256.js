@@ -573,6 +573,12 @@ video {
   width: 24rem;
 }
 
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .break-all {
   word-break: break-all;
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useOutletContext } from 'react-router-dom';
+import Hashing from './Hashing';
 
 import { anyToBinaryStr, intTo64BinaryStrArr } from '../../hooks/converters';
 
@@ -81,13 +82,16 @@ export default function FirstPage() {
     }, [bytesArr]);
 
     return (
-        <div className='outline outline-1 h-full w-96'>
+        <div className="outline outline-1 h-full w-96">
             {DCS.first ? <div>Input: {Input}</div> : null}
             {DCS.seccond ? (
                 <div>ASCII Bytes: {bytesArr.reduce((c, p) => c + p)}</div>
             ) : null}
             {DCS.third ? (
                 <div className="break-all">{binaryDisplay}</div>
+            ) : null}
+            {DVS.fourth ? (
+                <Hashing />
             ) : null}
         </div>
     );

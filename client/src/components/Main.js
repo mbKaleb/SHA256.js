@@ -1,21 +1,18 @@
 //Main is the wrapper page for all pages
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import logo from '../logo.svg';
 
 export default function Main() {
-
     const [userInput, setUserInput] = useState('');
-    const [isOutletActive, setIsOutletActive] = useState(false)
+    const [isOutletActive, setIsOutletActive] = useState(false);
 
     const inputHandler = (e) => {
-        if (!isOutletActive) setUserInput((userInput) => e.target.value)
+        if (!isOutletActive) setUserInput((userInput) => e.target.value);
     };
 
     const buttonClickHandler = (e) => {
         setIsOutletActive(!isOutletActive);
-    }
-
+    };
 
     return (
         <div className="App p-2">
