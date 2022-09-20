@@ -7,6 +7,8 @@ import { anyToBinaryStr, intTo64BinaryStrArr } from '../../hooks/converters';
 export default function FirstPage() {
     const [Input, setInput] = useOutletContext();
 
+    const [initMsg, setInitMsg] = useState()
+
     let message = '';
 
     const defaultStr = 'default';
@@ -18,6 +20,7 @@ export default function FirstPage() {
         first: false,
         seccond: false,
         third: false,
+        fourth: false,
     });
 
     useEffect(() => {
@@ -90,9 +93,7 @@ export default function FirstPage() {
             {DCS.third ? (
                 <div className="break-all">{binaryDisplay}</div>
             ) : null}
-            {DVS.fourth ? (
-                <Hashing />
-            ) : null}
+            {DCS.fourth ? <Hashing initMsg={initMsg} /> : null}
         </div>
     );
 }
