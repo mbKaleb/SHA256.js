@@ -29,8 +29,7 @@ const intTo32BitStr = (integer) => {
             );
         while (biStr.length < 32) biStr.unshift('0');
         let str = biStr.join('');
-        console.log(str);
-        return biStr
+        return str;
     }
 }
 
@@ -45,9 +44,18 @@ const anyToBinaryStr = (any) => {
     }
 };
 
+const bToIn = (bStr) => {
+    if (typeof bStr == !'string'){
+        return null
+    }
+    let resp = parseInt(bStr, 2);
+    return resp
+}
+
 export {
     intTo32BinaryStrArr,
     intTo64BinaryStrArr,
     intTo32BitStr,
     anyToBinaryStr,
+    bToIn,
 };

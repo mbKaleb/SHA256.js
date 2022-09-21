@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Main from './components/Main';
-import FirstPage from './components/pages/FirstPage';
+import Message from './components/pages/Message';
 import Hashing from './components/pages/Hashing';
 
 const path1 = '';
@@ -15,10 +15,10 @@ export default function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Hashing />}>
+                <Route path="/" element={<Main />}>
                     <Route
                         path={`/${path1}`}
-                        element={<FirstPage setInitMsg={setInitMsg} />}
+                        element={<Message setInitMsg={setInitMsg} />}
                     />
                     {/* <Route
                         path={`/${path2}`}

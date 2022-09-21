@@ -17,19 +17,14 @@ export default function FirstPage() {
     const [binaryDisplay, setBinaryDisplay] = useState([]);
 
     const [DCS, setDCS] = useState({
-        first: false,
+        first: true,
         seccond: false,
         third: false,
         fourth: false,
     });
 
     useEffect(() => {
-        setTimeout(() => {
-            setDCS({ ...DCS, first: true });
-            setBytesArr(
-                [...Input].map((c) => c.charCodeAt(0).toString() + ' ')
-            );
-        }, 100);
+        setBytesArr([...Input].map((c) => c.charCodeAt(0).toString() + ' '));
 
         setTimeout(() => {
             setDCS((DCS) => ({ ...DCS, seccond: true }));
@@ -37,12 +32,12 @@ export default function FirstPage() {
     }, []);
 
     useEffect(() => {
+        //Binary Display Control//
         setTimeout(() => {
             setDCS((DCS) => ({ ...DCS, third: true }));
             let bArr = [...bytesArr].map((byte) => {
                 return anyToBinaryStr(byte);
             });
-
             for (let i = 0; i <= bArr.length - 1; i++) {
                 setTimeout(() => {
                     setBinaryDisplay(bArr.slice(0, i + 1));
@@ -67,11 +62,15 @@ export default function FirstPage() {
                 setBinaryDisplay((prevState) => {
                     let padL = 446 - (prevState.length - 1);
                     if (typeof prevState === 'string') {
-                        console.log(padL);
                         let padding = '';
                         for (let i = 0; i <= padL; i++) {
                             padding = padding + '0';
                         }
+                        setInitMsg(
+                            prevState +
+                            padding +
+                            intTo64BinaryStrArr(padL).join('')
+                        );
                         return (
                             prevState +
                             padding +
@@ -82,25 +81,21 @@ export default function FirstPage() {
                 });
             }, 400 * (bArr.length + 2));
         }, 1500);
-
-        setTimeout(() => {
-            setDCS((DCS) => ({ ...DCS, fourth: true }));
-        }, 2500 + Input.split('').length * 500);
-        
     }, [bytesArr]);
+
+    useEffect(() => {
+        if (typeof initMsg === !"string") return null;
+        if (initMsg){
+            setDCS((DCS) => ({ ...DCS, fourth: true }));
+        }
+    }, [initMsg]);
 
     return (
         <div className="outline outline-1 h-full w-96">
-            {DCS.first ? <div>Input: {Input}</div> : null}
-            {DCS.seccond ? (
-                <div>ASCII Bytes: {bytesArr.reduce((c, p) => c + p)}</div>
-            ) : null}
-            {DCS.third ? (
-                <div className="break-all">{binaryDisplay}</div>
-            ) : null}
+            <div>Input: {Input || null}</div>
+            <div>ASCII Bytes: {DCS.seccond ? (bytesArr.reduce((c, p) => c + p)) : null}</div>
+            <div>Message: <div className='break-all'>{DCS.third ? binaryDisplay : null}</div></div>
             {DCS.fourth ? <Hashing initMsg={initMsg} /> : null}
         </div>
     );
 }
-// first padd it out to 512 bits, 512 - message - 1 - 64 (length of message)
-// each block gets a schedule
