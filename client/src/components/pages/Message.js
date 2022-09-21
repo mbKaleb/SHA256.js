@@ -91,8 +91,8 @@ export default function FirstPage() {
     }, [initMsg]);
 
     return (
-        <div className="outline outline-1 h-full w-96">
-            <div>Input: {Input || null}</div>
+        <div className="outline outline-1 h-full w-82 p-2">
+            <div className='font-bold'>Input: {Input || null}</div>
             <div>ASCII Bytes: {DCS.seccond ? (bytesArr.reduce((c, p) => c + p)) : null}</div>
             <div>Message: <div className='break-all'>{DCS.third ? binaryDisplay : null}</div></div>
             {DCS.fourth ? <Hashing initMsg={initMsg} /> : null}

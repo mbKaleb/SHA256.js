@@ -28,7 +28,7 @@ export default function Hashing({ initMsg }) {
     return (
         <>
             <div>{msgState}</div>
-            {<BinaryDisplay integer={5} />}
+            {/* {<BinaryDisplay integer={5} />} */}
             {/* <div>{msgState.map((integer) => {return intToBiDisplay(integer)})}</div> */}
         </>
     );
