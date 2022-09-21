@@ -31,7 +31,7 @@ export default function Main() {
                     {isOutletActive ? 'Cancel' : 'Start'}
                 </button>
 
-                <div className="p-2 outline-1 outline m-1 bg-white h-[90vh] ">
+                <div className="p-2 outline-1 outline m-1 bg-black h-[90vh] ">
                     {isOutletActive ? (
                         <Outlet context={[userInput, setUserInput]} />
                     ) : null}

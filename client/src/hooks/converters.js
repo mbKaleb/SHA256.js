@@ -25,10 +25,7 @@ const intTo64BinaryStrArr = (integer) => {
 const intTo32BitStr = (integer) => {
     if (integer) {
         let biStr = Array.from(integer.toString(2));
-        if (biStr.length > 32)
-            throw Error(
-                `${integer} is greater than 32 bits, Input must be 32 or less bits`
-            );
+        while (biStr.length > 32) biStr.shift()
         while (biStr.length < 32) biStr.unshift('0');
         let str = biStr.join('');
         return str;
