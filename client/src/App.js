@@ -20,10 +20,6 @@ export default function App() {
                         path={`/${path1}`}
                         element={<Message setInitMsg={setInitMsg} />}
                     />
-                    {/* <Route
-                        path={`/${path2}`}
-                        element={<Hashing initMsg={initMsg} />}
-                    /> */}
                 </Route>
             </Routes>
         </Router>
