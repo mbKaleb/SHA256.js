@@ -15,9 +15,9 @@ export default function Main() {
     };
 
     return (
-        <div className="App p-2">
+        <div className="App p-2 bg-yellow-50">
             <header className="App-header">
-                <div className="ml-1">
+                <div className="ml-1 font-bold">
                     Welcome to SHA-256.js, enter your string and press start
                 </div>
                 <input
@@ -26,12 +26,12 @@ export default function Main() {
                     onChange={inputHandler}
                 />
                 <button
-                    className="outline outline-1 rounded p-1 m-1"
+                    className="outline outline-1 rounded p-1 m-1 bg-white"
                     onClick={buttonClickHandler}
                 >
                     {isOutletActive ? 'Cancel' : 'Start'}
                 </button>
-                <div className="p-1 m-1 outline outline-1 rounded h-screen">
+                <div className="p-2 outline-1 outline m-1 h-screen bg-white ">
                     {isOutletActive ? (
                         <Outlet context={[userInput, setUserInput]} />
                     ) : null}
