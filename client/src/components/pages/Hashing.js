@@ -49,7 +49,7 @@ export default function Hashing({ initMsg }) {
             <div className=" p-1 border-t-2 border-l-2 border-black h-[73vh]">
                 <div className="break-all text-black">
                     <div className="bg-yellow-50 p-4 absolute bottom right-[0] w-[45%] h-[94.7%] ">
-                        <div>Raw Message Binary:</div>
+                        <div>{iniMsg ? "Raw Message Binary:" : null }</div>
                         <div>{iniMsg}</div>
                     </div>
                 </div>
