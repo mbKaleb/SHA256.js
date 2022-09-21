@@ -40,7 +40,8 @@ html {
   /* 3 */
   tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Roboto', sans-serif;
+
   /* 4 */
 }
 
@@ -557,10 +558,6 @@ video {
   margin-left: 0.25rem;
 }
 
-.block {
-  display: block;
-}
-
 .h-screen {
   height: 100vh;
 }
@@ -569,14 +566,14 @@ video {
   height: 100%;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .w-fit {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .break-all {
@@ -593,6 +590,10 @@ video {
 
 .p-1 {
   padding: 0.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .outline {
