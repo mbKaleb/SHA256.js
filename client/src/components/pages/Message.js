@@ -23,9 +23,10 @@ export default function FirstPage() {
         fourth: false,
     });
 
+
     useEffect(() => {
         setBytesArr([...Input].map((c) => c.charCodeAt(0).toString() + ' '));
-
+        
         setTimeout(() => {
             setDCS((DCS) => ({ ...DCS, seccond: true }));
         }, 1000);

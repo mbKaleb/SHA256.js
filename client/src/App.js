@@ -12,7 +12,8 @@ const path1 = '';
 export default function App() {
     const [initMsg, setInitMsg] = useState([]);
     const [clippyStr, setClippyStr] = useState("")
-    const { context } = React.createContext(clippyStr);
+    const { context } = React.createContext(clippyStr);//Text data for clippy
+    
 
     return (
         <context.Provider value={clippyStr}>
