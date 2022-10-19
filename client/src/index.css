@@ -653,6 +653,42 @@ video {
   height: 3;
 }
 
+.h-\[\] {
+  height: ;
+}
+
+.h-\[2\] {
+  height: 2;
+}
+
+.h-\[2px\] {
+  height: 2px;
+}
+
+.h-\[px\] {
+  height: px;
+}
+
+.h-\[16px\] {
+  height: 16px;
+}
+
+.h-\[15px\] {
+  height: 15px;
+}
+
+.h-\[14px\] {
+  height: 14px;
+}
+
+.h-\[13px\] {
+  height: 13px;
+}
+
+.h-\[13\.5px\] {
+  height: 13.5px;
+}
+
 .min-h-fit {
   min-height: -webkit-fit-content;
   min-height: -moz-fit-content;
