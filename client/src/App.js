@@ -11,12 +11,12 @@ const path1 = '';
 
 export default function App() {
     const [initMsg, setInitMsg] = useState([]);
-    const [clippyStr, setClippyStr] = useState("")
-    const { context } = React.createContext(clippyStr);//Text data for clippy
+    const [clippyText, setClippyText] = useState("Hello")
+    const { context } = React.createContext(clippyText);//Text data for clippy
     
 
     return (
-        <context.Provider value={clippyStr}>
+        // <context.Provider value={clippyText}>
             <Router>
                 <Routes>
                     <Route path="/" element={<Main />}>
@@ -27,6 +27,6 @@ export default function App() {
                     </Route>
                 </Routes>
             </Router>
-        </context.Provider>
+        // </context.Provider>
     );
 }
