@@ -5,14 +5,8 @@ import Hashing from './Hashing';
 import { anyToBinaryStr, intTo64BinaryStrArr } from '../../hooks/converters';
 
 export default function FirstPage() {
-    const [Input, setInput] = useOutletContext();
-
+    const [Input] = useOutletContext();
     const [initMsg, setInitMsg] = useState();
-
-    let message = '';
-
-    const defaultStr = 'default';
-
     const [bytesArr, setBytesArr] = useState([]);
     const [binaryDisplay, setBinaryDisplay] = useState([]);
 
@@ -26,7 +20,6 @@ export default function FirstPage() {
 
     useEffect(() => {
         setBytesArr([...Input].map((c) => c.charCodeAt(0).toString() + ' '));
-        
         setTimeout(() => {
             setDCS((DCS) => ({ ...DCS, seccond: true }));
         }, 1000);

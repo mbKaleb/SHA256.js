@@ -7,7 +7,7 @@ export default function Main() {
     const [isOutletActive, setIsOutletActive] = useState(false);
 
     const inputHandler = (e) => {
-        if (!isOutletActive) setUserInput((userInput) => e.target.value);
+        if (!isOutletActive) setUserInput(e.target.value);
     };
 
     const buttonClickHandler = (e) => {
