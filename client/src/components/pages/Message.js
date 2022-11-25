@@ -15,13 +15,18 @@ export default function FirstPage() {
 
     useEffect(() => {
         //Get Ascii from input
-        for(let i=0;i<bytesArr.length;i++){
+        for (let i=0;i<bytesArr.length;i++){
             setTimeout(()=> {
-                
-            }, i*450)
+                setBytesArr((state)=>{
+                    let newState = [...state]
+                    if (typeof newState[i] === "string") newState[i] = (newState[i]).charCodeAt(0);
+                    return newState
+                })
+            }, (i*500) + 500 )
         }
 
         //Get Binary from Ascii
+
     }, []);
 
     // useEffect(() => {
@@ -88,9 +93,9 @@ export default function FirstPage() {
     return (
         <div className="outline outline-3 outline-black rounded h-full w-82 p-2 bg-black text-green-400">
             <div className='font-bold'>Input: {Input}</div>
-            <div>ASCII Bytes: {bytesArr.reduce((c, p) => c + p)}</div>
-            <div>Message: <div className='break-all'> {binaryDisplay} </div></div>
-            {DCS.fourth ? <Hashing initMsg={initMsg} /> : null}
+            <div>ASCII Bytes: {bytesArr.map(letter => {return(<>{letter + "    " }</>)})}</div>
+            {/* <div>Message: <div className='break-all'> {binaryDisplay} </div></div> */}
+            {/* {<Hashing initMsg={Input} />} */}
         </div>
     );
 }
