@@ -11,26 +11,28 @@ export default function FirstPage() {
     const [binaryDisplay, setBinaryDisplay] = useState([]);
 
     const [DCS, setDCS] = useState({
-        first: true,
-        seccond: true,
+        first: false,
+        second: false,
         third: false,
         fourth: false,
     });
 
 
     useEffect(() => {
-        console.log(bytesArr)
+        console.log(bytesArr.length)
 
-        setTimeout(()=>{
-            for(let i=0; )
-        }, )
+        for(let i=0;i<bytesArr.length;i++){
+            setTimeout(()=> {
+                console.log('ran')
+            }, i*450)
+        }
         // setBytesArr([...Input].map((c) => c.charCodeAt(0).toString() + ' '));
 
         // setTimeout(() => {
 
         //     setDCS((DCS) => ({ ...DCS, seccond: true }));
         // }, 1000);
-    }, [bytesArr]);
+    }, []);
 
     // useEffect(() => {
     //     //Binary Display Control//
