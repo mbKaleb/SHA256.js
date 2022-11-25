@@ -5,33 +5,23 @@ import Hashing from './Hashing';
 import { anyToBinaryStr, intTo64BinaryStrArr } from '../../hooks/converters';
 
 export default function FirstPage() {
-    const [Input] = useOutletContext();
-    const [initMsg, setInitMsg] = useState();
+    const [Input] = useOutletContext("");
+    
+    const [step, setStep] = useState(0)
+
     const [bytesArr, setBytesArr] = useState(Input.split(""));
     const [binaryDisplay, setBinaryDisplay] = useState([]);
 
-    const [DCS, setDCS] = useState({
-        first: false,
-        second: false,
-        third: false,
-        fourth: false,
-    });
-
 
     useEffect(() => {
-        console.log(bytesArr.length)
-
+        //Get Ascii from input
         for(let i=0;i<bytesArr.length;i++){
             setTimeout(()=> {
-                console.log('ran')
+                
             }, i*450)
         }
-        // setBytesArr([...Input].map((c) => c.charCodeAt(0).toString() + ' '));
 
-        // setTimeout(() => {
-
-        //     setDCS((DCS) => ({ ...DCS, seccond: true }));
-        // }, 1000);
+        //Get Binary from Ascii
     }, []);
 
     // useEffect(() => {
@@ -97,9 +87,9 @@ export default function FirstPage() {
 
     return (
         <div className="outline outline-3 outline-black rounded h-full w-82 p-2 bg-black text-green-400">
-            <div className='font-bold'>Input: {Input || null}</div>
-            <div>ASCII Bytes: {DCS.seccond ? (bytesArr.reduce((c, p) => c + p)) : null}</div>
-            <div>Message: <div className='break-all'>{DCS.third ? binaryDisplay : null}</div></div>
+            <div className='font-bold'>Input: {Input}</div>
+            <div>ASCII Bytes: {bytesArr.reduce((c, p) => c + p)}</div>
+            <div>Message: <div className='break-all'> {binaryDisplay} </div></div>
             {DCS.fourth ? <Hashing initMsg={initMsg} /> : null}
         </div>
     );
