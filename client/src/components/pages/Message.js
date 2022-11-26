@@ -3,6 +3,7 @@ import { Outlet, useOutletContext } from 'react-router-dom';
 import Hashing from './Hashing';
 
 import { anyToBinaryStr, intTo64BinaryStrArr } from '../../hooks/converters';
+import BinaryDisplay from '../cComponents/BinaryDisplay';
 
 export default function FirstPage() {
     const [Input] = useOutletContext("");
@@ -11,7 +12,6 @@ export default function FirstPage() {
 
     const [bytesArr, setBytesArr] = useState(Input.split(""));
     const [binaryDisplay, setBinaryDisplay] = useState([]);
-
 
     useEffect(() => {
         //Get Ascii from input
@@ -25,13 +25,26 @@ export default function FirstPage() {
                 })
             }, (i*500) + 500 );
         }
-        //Get Binary from Ascii
     }, []);
-    
+
     useEffect(() => {
         console.log('step:', step)
+
+        //Get Binary from ASCII
         if (step === 1){
-            console.log("Ran")
+            setBinaryDisplay(bytesArr)
+            for (let i=0;i<=bytesArr.length-1;i++){
+                setTimeout(()=> {
+                    setBinaryDisplay((state)=> {
+                        let newState = [...state]
+                        if (typeof newState[i] === 'number' ) newState[i] = newState[i].toString(2);
+                        return newState
+                    })
+                }, (i+500) + 450)
+            }
+        }
+        if (step === 2){
+
         }
     }, [step])
 
@@ -100,7 +113,7 @@ export default function FirstPage() {
         <div className="outline outline-3 outline-black rounded h-full w-82 p-2 bg-black text-green-400">
             <div className='font-bold'>Input: {Input}</div>
             <div>ASCII Bytes: {bytesArr.map(letter => {return(<>{letter + " " }</>)})}</div>
-            {/* <div>Message: <div className='break-all'> {binaryDisplay} </div></div> */}
+            <div>Message: { binaryDisplay } </div>
             {/* {<Hashing initMsg={Input} />} */}
         </div>
     );
