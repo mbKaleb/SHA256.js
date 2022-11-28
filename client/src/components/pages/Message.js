@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useOutletContext } from 'react-router-dom';
+import { Outlet, useOutletContext, useSearchParams } from 'react-router-dom';
 import Hashing from './Hashing';
 
 import { anyToBinaryStr, intTo64BinaryStrArr } from '../../hooks/converters';
@@ -32,21 +32,30 @@ export default function FirstPage() {
 
         //Get Binary from ASCII
         if (step === 1){
-            setBinaryDisplay(bytesArr)
+            let newArray = []
+            bytesArr.forEach((i, index)=>{ newArray[index] = bytesArr[index].toString() });
+            console.log(newArray)
+
+            setBinaryDisplay(newArray)
+
             for (let i=0;i<=bytesArr.length-1;i++){
                 setTimeout(()=> {
                     setBinaryDisplay((state)=> {
-                        let newState = [...state]
-                        if (typeof newState[i] === 'number' ) newState[i] = newState[i].toString(2);
-                        return newState
+                        console.log(state)
+                        // if (typeof newState[i] === 'number' ) newState[i] = newState[i].toString(2);
+                        // return newState
                     })
                 }, (i+500) + 450)
             }
         }
         if (step === 2){
-
         }
     }, [step])
+
+    useEffect(() => {
+    //   console.log("binaryDisplay", binaryDisplay)
+    }, [binaryDisplay])
+    
 
     return (
         <div className="outline outline-3 outline-black rounded h-full w-82 p-2 bg-black text-green-400">
