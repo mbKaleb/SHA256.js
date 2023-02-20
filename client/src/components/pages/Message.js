@@ -11,6 +11,7 @@ export default function FirstPage() {
     const [step, setStep] = useState(0)
 
     const [bytesArr, setBytesArr] = useState(Input.split(""));
+    
     const [binaryDisplay, setBinaryDisplay] = useState([]);
 
     useEffect(() => {
