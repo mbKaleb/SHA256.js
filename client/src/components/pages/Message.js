@@ -11,7 +11,7 @@ export default function FirstPage() {
     const [step, setStep] = useState(0)
 
     const [bytesArr, setBytesArr] = useState(Input.split(""));
-    
+
     const [binaryDisplay, setBinaryDisplay] = useState([]);
 
     useEffect(() => {
@@ -50,13 +50,12 @@ export default function FirstPage() {
             }
         }
         if (step === 2){
+            console.log('second')
         }
     }, [step])
 
     useEffect(() => {
-    //   console.log("binaryDisplay", binaryDisplay)
     }, [binaryDisplay])
-    
 
     return (
         <div className="outline outline-3 outline-black rounded h-full w-82 p-2 bg-black text-green-400">
