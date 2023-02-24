@@ -15,12 +15,12 @@ export default function Main() {
     };
 
     return (
-        <div className="App p-2 bg-yellow-50 h-screen">
-                <div className="ml-1 font-bold">
+        <div className="App p-4 bg-yellow-50 h-screen">
+                <div className="ml-1 mb-2 font-medium">
                     Welcome to SHA-256.js, enter your string and press start
                 </div>
                 <input
-                    className="outline outline-1 rounded p-1 m-1"
+                    className="outline outline-1 p-1 m-1 -p-1 -mb-2"
                     value={userInput}
                     onChange={inputHandler}
                 />
