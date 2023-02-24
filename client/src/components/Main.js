@@ -19,6 +19,7 @@ export default function Main() {
                 <div className="ml-1 mb-2 font-medium">
                     Welcome to SHA-256.js, enter your string and press start
                 </div>
+                
                 <input
                     className="outline outline-1 p-1 m-1 -p-1 -mb-2"
                     value={userInput}
