@@ -26,6 +26,7 @@ export default function Main() {
                     onChange={inputHandler}
                 />
 
+
                 <button
                     className="outline outline-1 rounded p-1 m-1 bg-white"
                     onClick={buttonClickHandler}
