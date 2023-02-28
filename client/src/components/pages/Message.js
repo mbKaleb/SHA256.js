@@ -54,6 +54,8 @@ export default function FirstPage() {
         }
     }, [step])
 
+
+    
     useEffect(() => {
     }, [binaryDisplay])
 
