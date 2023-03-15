@@ -11,6 +11,7 @@ export default function BinaryDisplay({ integer }) {
             const binaryString = intTo32BitStr(int);
             binaryArray.push(binaryString);
         })
+        
 
         return <div className="w-fit h-[13.5px] w-full  ml-2">{binaryArray}</div>;
     }
